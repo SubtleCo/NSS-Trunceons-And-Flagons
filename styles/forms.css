@@ -1,0 +1,9 @@
+.setupForm__teamSelect, .setupForm__buttons {
+    display: flex;
+    justify-content: space-evenly;
+    margin: 20px;
+}
+
+.setupForm {
+    border: 1px dotted blue;
+}
