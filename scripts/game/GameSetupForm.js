@@ -45,7 +45,7 @@ const GameSetupForm = () => {
 eventHub.addEventListener("click", e => {
     if (e.target.id === "startNewTeam") {
         e.preventDefault()
-        alert("Launch New Team Form")
+        // alert("Launch New Team Form")
         const customEvent = new CustomEvent("newTeamRequested")
         eventHub.dispatchEvent(customEvent)
     }
@@ -53,7 +53,7 @@ eventHub.addEventListener("click", e => {
 eventHub.addEventListener("click", e => {
     if (e.target.id === "joinTeam") {
         e.preventDefault()
-        alert("Launch New Player Form")
+        // alert("Launch New Player Form")
         const customEvent = new CustomEvent("newPlayerRequested")
         eventHub.dispatchEvent(customEvent)
     }
