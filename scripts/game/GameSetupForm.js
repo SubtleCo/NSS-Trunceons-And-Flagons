@@ -56,15 +56,14 @@ const GameSetupTable = () => {
                 <tr><td>${team.teamName}</td></tr>
                 `
             }).join("")
-        })
-        .then(() => {
-            return `
-                <div class="table table__leaderboard">
-                    <table>
-                        <tr><th>Leaderboards</th></tr>
-                        ${leaderboard}
-                    </table>
-                </div>
+
+            tableElement.innerHTML = `
+            <div class="table__leaderboards">
+                <table>
+                    <tr><th>Leaderboards</th></tr>
+                    ${scoreTableData}
+                </table>
+            </div>
             `
         })
 }
@@ -135,5 +134,5 @@ export const GameSetup = () => {
     document.querySelector("header").innerHTML = "Sup dogs"
     bannerElement.innerHTML = "Select teams for a new game"
     formElement.innerHTML = GameSetupForm()
-    tableElement.innerHTML = GameSetupTable()
+    GameSetupTable()
 }
