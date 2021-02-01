@@ -1,9 +1,14 @@
-import {getPlayersByTeamId} from '../players/PlayersDataProvider.js'
+import {getPlayers, getPlayersByTeamId} from '../players/PlayersDataProvider.js'
+import {getScores} from '../scores/ScoreDataProvider.js'
 
 let teamCollection = []
+let fullTeams = []
 
 export const useTeams = () => {
   return teamCollection.slice()
+}
+export const useFullTeams = () =>{
+  return fullTeams
 }
 
 export const getTeams = () => {
@@ -14,16 +19,17 @@ export const getTeams = () => {
     })
 }
 
-export const fullTeams = () =>{
-  getTeams().then(()=>{
-    let fullTeams = []
+
+export const getFullTeams = () =>{
+  return getScores().then(getTeams).then(getPlayers).then(()=>{
     for(const team of teamCollection){
+      debugger
       if(getPlayersByTeamId(team.id).length === 3){
           fullTeams.push(team)
       }
-      return fullTeams
-  }
-})
+    }
+    
+  })
 }
 
 export const saveTeam = (teamName) => {

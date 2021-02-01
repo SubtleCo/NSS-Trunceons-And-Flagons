@@ -26,5 +26,6 @@ export const savePlayer = player => {
 }
 
 export const getPlayersByTeamId = teamId => {
-    return players.filter(player => player.teamId === teamId)
-}
+
+        return players.filter(player => player.teamId === teamId)
+    }

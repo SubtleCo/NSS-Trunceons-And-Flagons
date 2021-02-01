@@ -4,7 +4,7 @@ const eventHub = document.querySelector('#container')
 let scoreCollection = [];
 
 export const getScores = () => {
-    fetch("http://localhost:8088/scores")
+    return fetch("http://localhost:8088/scores")
         .then(res => res.json())
         .then(parsedScore => {
             scoreCollection = parsedScore
