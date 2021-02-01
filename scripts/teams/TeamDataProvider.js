@@ -23,7 +23,6 @@ export const getTeams = () => {
 export const getFullTeams = () =>{
   return getScores().then(getTeams).then(getPlayers).then(()=>{
     for(const team of teamCollection){
-      debugger
       if(getPlayersByTeamId(team.id).length === 3){
           fullTeams.push(team)
       }
