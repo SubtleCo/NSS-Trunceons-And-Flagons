@@ -1,4 +1,5 @@
 import { getTeams, useTeams, getTeamName } from "../teams/TeamDataProvider.js"
+import { getScores, useScores } from "../scores/ScoreDataProvider.js"
 
 const bannerElement = document.querySelector(".banner")
 const formElement = document.querySelector('.form')
