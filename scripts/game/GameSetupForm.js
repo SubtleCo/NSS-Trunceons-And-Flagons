@@ -61,12 +61,19 @@ eventHub.addEventListener("click", e => {
 eventHub.addEventListener("click", e => {
     if (e.target.id === "startGame") {
         e.preventDefault()
-        const team1 = document.querySelector("#team1Select").value
-        const team2 = document.querySelector("#team2Select").value
-        const team3 = document.querySelector("#team3Select").value
+        const team1 = parseInt(document.querySelector("#team1Select").value)
+        const team2 = parseInt(document.querySelector("#team2Select").value)
+        const team3 = parseInt(document.querySelector("#team3Select").value)
         if (allTeamsChosen(team1, team2, team3)) {
             if (areUnique(team1, team2, team3)) {
-                alert("Ready to go!")
+                const cE = new CustomEvent("startNewGame", {
+                    detail: {
+                        team1ID: team1,
+                        team2ID: team2,
+                        team3ID: team3,
+                    }
+                })
+                eventHub.dispatchEvent(cE)
             } else {
                 alert("Teams cannot play themselves. Well, not easily, anyway.")
             }
