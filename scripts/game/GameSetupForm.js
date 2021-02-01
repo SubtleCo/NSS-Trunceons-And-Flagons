@@ -66,8 +66,11 @@ eventHub.addEventListener("click", e => {
                 const cE = new CustomEvent("startNewGame", {
                     detail: {
                         team1ID: team1,
+                        team1Name: getTeamName(team1),
                         team2ID: team2,
+                        team2Name: getTeamName(team2),
                         team3ID: team3,
+                        team3Name: getTeamName(team3)
                     }
                 })
                 eventHub.dispatchEvent(cE)

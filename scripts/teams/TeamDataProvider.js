@@ -22,3 +22,8 @@ export const saveTeam = (teamName) => {
   })
     .then(getTeams)
 }
+
+export const getTeamName = (id) => {
+  const foundTeam = teamCollection.find(team => team.id === id)
+  return foundTeam.teamName
+}
