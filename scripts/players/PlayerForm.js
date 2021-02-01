@@ -4,29 +4,6 @@ import {playerList} from "./PlayerList.js"
 
 let teamArray = []
 
-let testTeamArray = [{
-    id : 1,
-    name : "griffons",
-    date : "today"
-},
-{
-    id : 2,
-    name : "buffoons",
-    date : "today"
-},
-{
-    id : 3,
-    name : "toads",
-    date : "today"
-},
-{
-    id : 4,
-    name : "squirrels",
-    date : "today"
-},
-]
-
-
 const contentTarget = document.querySelector(".form")
 const eventHub = document.querySelector("#container")
 
