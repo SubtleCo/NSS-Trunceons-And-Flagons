@@ -1,5 +1,6 @@
 import { getTeams, useTeams } from "../teams/TeamDataProvider.js"
 import { getPlayersByTeamId, savePlayer } from "./PlayersDataProvider.js"
+import {playerList} from "./PlayerList.js"
 
 let teamArray = []
 
@@ -54,6 +55,13 @@ export const render = (teams) => {
     // console.log(joinableTeams)
 }
 
+eventHub.addEventListener("change", changeEvent => {
+    if (changeEvent.target.id === "teamSelect") {
+        const selectedTeamId = changeEvent.target.value
+        playerList(parseInt(selectedTeamId))
+    }
+})
+
 eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id === "savePlayer"){
         const firstName = document.querySelector("#playerFirstName").value
@@ -86,6 +94,7 @@ eventHub.addEventListener("click", e => {
   })
 
 eventHub.addEventListener("newPlayerRequested", event =>{
+
     getTeams().then(()=>{
         teamArray = useTeams()
         render(teamArray)
