@@ -1,5 +1,21 @@
 {
-  "teams": [],
+  "teams": [
+    {
+      "teamName": "yuh",
+      "timestamp": "2021-02-01T16:04:29.460Z",
+      "id": 1
+    },
+    {
+      "teamName": "yeet",
+      "timestamp": "2021-02-01T16:04:34.236Z",
+      "id": 2
+    },
+    {
+      "teamName": "huh",
+      "timestamp": "2021-02-01T16:04:41.113Z",
+      "id": 3
+    }
+  ],
   "players": [],
   "scores": [
     {

@@ -8,6 +8,7 @@
     border: 1px dotted blue;
 }
 
+
 .scoreCard  {
     display: flex;
     justify-content: space-evenly;
@@ -29,4 +30,41 @@
 #endRound {
     margin-top: 10px;
     align-self: flex-end;
+
+.teamForm__team {
+    margin: 5px;
+    display: flex;
+    flex-direction: column;
+}
+
+.teamForm {
+    background-color: #add8e6;
+    border: 1px black solid;
+    border-radius: 5px;
+    padding: 10px;
+}
+
+#teamForm__submitButton {
+    margin: 0 auto;
+    display: block;
+}
+
+#container {
+    display:flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.header, 
+.banner, 
+.form, 
+.table {
+    margin: 10px;
+}
+
+table, 
+td {
+    border: 1px black solid;
+    padding: 5px;
+
 }

@@ -5,6 +5,7 @@ import "./players/PlayerForm.js"
 import './teams/TeamForm.js'
 import './scores/ScoreDataProvider.js'
 
+
 console.log("Welcome to the main module")
 
 // GameSetup();
