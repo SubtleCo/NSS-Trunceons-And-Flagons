@@ -16,7 +16,15 @@
       "id": 3
     }
   ],
-  "players": [],
+  "players": [
+    {
+      "firstName": "Jake",
+      "lastName": "Froeb",
+      "country": "United States",
+      "teamId": 3,
+      "id": 1
+    }
+  ],
   "scores": [
     {
       "teamID": 1,
@@ -35,6 +43,114 @@
       "teamScore": 0,
       "date": "2021-02-01T17:00:20.673Z",
       "id": 3
+    },
+    {
+      "teamID": 1,
+      "teamScore": 0,
+      "date": "2021-02-01T19:30:53.026Z",
+      "id": 4
+    },
+    {
+      "teamID": 2,
+      "teamScore": 0,
+      "date": "2021-02-01T19:30:53.026Z",
+      "id": 5
+    },
+    {
+      "teamID": 3,
+      "teamScore": 0,
+      "date": "2021-02-01T19:30:53.026Z",
+      "id": 6
+    },
+    {
+      "teamID": 1,
+      "teamScore": 0,
+      "date": "2021-02-01T19:31:22.193Z",
+      "id": 7
+    },
+    {
+      "teamID": 2,
+      "teamScore": 0,
+      "date": "2021-02-01T19:31:22.193Z",
+      "id": 8
+    },
+    {
+      "teamID": 3,
+      "teamScore": 0,
+      "date": "2021-02-01T19:31:22.193Z",
+      "id": 9
+    },
+    {
+      "teamID": 1,
+      "teamScore": 0,
+      "date": "2021-02-01T19:32:41.637Z",
+      "id": 10
+    },
+    {
+      "teamID": 2,
+      "teamScore": 0,
+      "date": "2021-02-01T19:32:41.637Z",
+      "id": 11
+    },
+    {
+      "teamID": 3,
+      "teamScore": 0,
+      "date": "2021-02-01T19:32:41.637Z",
+      "id": 12
+    },
+    {
+      "teamID": 1,
+      "teamScore": 0,
+      "date": "2021-02-01T19:43:55.288Z",
+      "id": 13
+    },
+    {
+      "teamID": 2,
+      "teamScore": 0,
+      "date": "2021-02-01T19:43:55.288Z",
+      "id": 14
+    },
+    {
+      "teamID": 3,
+      "teamScore": 0,
+      "date": "2021-02-01T19:43:55.288Z",
+      "id": 15
+    },
+    {
+      "teamID": 1,
+      "teamScore": 0,
+      "date": "2021-02-01T19:44:42.861Z",
+      "id": 16
+    },
+    {
+      "teamID": 3,
+      "teamScore": 0,
+      "date": "2021-02-01T19:44:42.861Z",
+      "id": 17
+    },
+    {
+      "teamID": 2,
+      "teamScore": 0,
+      "date": "2021-02-01T19:44:42.861Z",
+      "id": 18
+    },
+    {
+      "teamID": 1,
+      "teamScore": 0,
+      "date": "2021-02-01T19:45:34.815Z",
+      "id": 19
+    },
+    {
+      "teamID": 2,
+      "teamScore": 0,
+      "date": "2021-02-01T19:45:34.815Z",
+      "id": 20
+    },
+    {
+      "teamID": 3,
+      "teamScore": 0,
+      "date": "2021-02-01T19:45:34.815Z",
+      "id": 21
     }
   ]
 }
