@@ -17,5 +17,24 @@
     }
   ],
   "players": [],
-  "scores": []
+  "scores": [
+    {
+      "teamID": 1,
+      "teamScore": 0,
+      "date": "2021-02-01T17:00:20.673Z",
+      "id": 1
+    },
+    {
+      "teamID": 3,
+      "teamScore": 0,
+      "date": "2021-02-01T17:00:20.673Z",
+      "id": 2
+    },
+    {
+      "teamID": 2,
+      "teamScore": 0,
+      "date": "2021-02-01T17:00:20.673Z",
+      "id": 3
+    }
+  ]
 }
