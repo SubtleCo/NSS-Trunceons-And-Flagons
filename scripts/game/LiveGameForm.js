@@ -1,4 +1,4 @@
-import { ScoreTable } from "../scores/ScoreTable";
+import { ScoreTable } from "../scores/ScoreTable.js";
 
 const bannerElement = document.querySelector(".banner")
 const formElement = document.querySelector('.form')
@@ -65,6 +65,7 @@ const LiveGame = (round = 1) => {
     bannerElement.innerHTML = `Round ${round}`
     const liveGameForm = LiveGameForm(round)
     render(liveGameForm)
+    displayScores()
 }
 
 const render = (liveGameForm) => {
@@ -80,14 +81,11 @@ eventHub.addEventListener("click", e => {
         e.preventDefault()
         if (currentRound === 1){
             calculateScores()
-            displayScores()
             LiveGame(2)
         } else if (currentRound === 2) {
             calculateScores()
-            displayScores()
             LiveGame(3)
         } else if (currentRound === 3) {
-            calculateScores()
             saveScores()
             zeroScores()
             goHome()
@@ -129,10 +127,9 @@ eventHub.addEventListener("startNewGame", e => {
     team1ID = e.detail.team1ID
     team2ID = e.detail.team2ID
     team3ID = e.detail.team3ID
-    team1Name = getTeamName(team1ID)
-    team2Name = getTeamName(team2ID)
-    team3Name = getTeamName(team3ID)
-    console.log(team3ID)
+    team1Name = e.detail.team1Name
+    team2Name = e.detail.team2Name
+    team3Name = e.detail.team3Name
     LiveGame()
 })
 
@@ -149,7 +146,7 @@ const displayScores = () => {
         team3: {
             name: team3Name,
             score: team3Score
-        },
+        }
     }
-    ScoreTable(currentScores)
+    ScoreTable(currentScore)
 }
