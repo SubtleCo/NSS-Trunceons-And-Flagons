@@ -10,11 +10,13 @@ let team2Score = 0;
 let team3Score = 0;
 
 //dummy Data for teamIDs
-const team1ID = 1;
-const team2ID = 2;
-const team3ID = 3;
+let team1ID = 0;
+let team2ID = 0;
+let team3ID = 0;
 
 //HTML for a live game, dynamic with current round number
+
+// We need to dynamically rotate the team roles each round
 const LiveGameForm = (round) => {
     return `
     <form action="" class="liveGameForm">
@@ -45,7 +47,7 @@ const LiveGameForm = (round) => {
 // This function replaces the ".form" section with a live game.
 
 // This will need to know teamIDs. If no round parameter is passed in, it'll default as round 1
-export const LiveGame = (round = 1) => {
+const LiveGame = (round = 1) => {
     currentRound = round
     bannerElement.innerHTML = `Round ${round}`
     const liveGameForm = LiveGameForm(round)
@@ -117,3 +119,10 @@ const saveScores = () => {
     })
     eventHub.dispatchEvent(customEvent)
 }
+
+eventHub.addEventListener("startNewGame", e => {
+    team1ID = e.detail.team1ID
+    team2ID = e.detail.team2ID
+    team3ID = e.detail.team3ID
+    LiveGame()
+})
