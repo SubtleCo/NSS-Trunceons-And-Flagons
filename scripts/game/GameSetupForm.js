@@ -1,5 +1,6 @@
+import { getTeams, useTeams, getTeamName } from "../teams/TeamDataProvider.js"
 import { getScores, useScores } from "../scores/ScoreDataProvider.js"
-import { getTeams, useTeams } from "../teams/TeamDataProvider.js"
+
 
 const bannerElement = document.querySelector(".banner")
 const formElement = document.querySelector('.form')
@@ -104,14 +105,16 @@ eventHub.addEventListener("click", e => {
         const team1 = parseInt(document.querySelector("#team1Select").value)
         const team2 = parseInt(document.querySelector("#team2Select").value)
         const team3 = parseInt(document.querySelector("#team3Select").value)
-        console.log(team3)
         if (allTeamsChosen(team1, team2, team3)) {
             if (areUnique(team1, team2, team3)) {
                 const cE = new CustomEvent("startNewGame", {
                     detail: {
                         team1ID: team1,
+                        team1Name: getTeamName(team1),
                         team2ID: team2,
+                        team2Name: getTeamName(team2),
                         team3ID: team3,
+                        team3Name: getTeamName(team3)
                     }
                 })
                 eventHub.dispatchEvent(cE)
