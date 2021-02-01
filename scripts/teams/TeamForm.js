@@ -3,15 +3,20 @@ import { getTeams, saveTeam, useTeams } from "./TeamDataProvider.js"
 const eventHub = document.querySelector("#container")
 const formContent = document.querySelector(".form")
 const tableContent = document.querySelector(".table")
+const bannerContent = document.querySelector(".banner")
 
 const TeamForm = () => {
+  bannerContent.innerHTML = "Create a New Team"
+
   formContent.innerHTML = `
-    <div class="form form__team">
-      <label for="teamName">Team Name: </label>
-      <input type="text" name="teamName" id="form__teamName" autocomplete="off">
-    </div>
-    <div class="form__submit">
-      <input id="form__teamNameSubmit" type="submit" value="Start a New Team">
+    <div class="teamForm">
+      <div class="teamForm__team">
+        <label for="teamName">Team Name: </label>
+        <input type="text" name="teamName" id="teamForm__teamName" autocomplete="off">
+      </div>
+      <div class="teamForm__submit">
+        <input id="teamForm__submitButton" type="submit" value="Start a New Team">
+      </div>
     </div>
   `
   let teamTableData = []
@@ -35,20 +40,23 @@ const TeamForm = () => {
         </div>
       `
     })
-
 }
 
 eventHub.addEventListener("click", e => {
-  if (e.target.id === "form__teamNameSubmit") {
-    let newTeam = {
-      teamName: document.getElementById("form__teamName").value,
-      timestamp: new Date()
+  if (e.target.id === "teamForm__submitButton") {
+    if (document.querySelector("#teamForm__teamName").value !== "") {
+      let newTeam = {
+        teamName: document.getElementById("teamForm__teamName").value,
+        timestamp: new Date()
+      }
+  
+      saveTeam(newTeam)
+  
+      const customEvent = new CustomEvent("appStateDefault")
+      eventHub.dispatchEvent(customEvent)
+    } else {
+      alert("Team Name Required")
     }
-
-    saveTeam(newTeam)
-
-    const customEvent = new CustomEvent("appStateDefault")
-    eventHub.dispatchEvent(customEvent)
   }
 })
 
