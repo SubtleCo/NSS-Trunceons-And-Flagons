@@ -20,6 +20,16 @@ h1,h2,h3,h4,h5,h6 {
   letter-spacing: 2px;
 }
 
-.banner {
-	text-align: center;
+.header, 
+.banner, 
+.form, 
+.table {
+		margin: 10px;
+		text-align: center;
+}
+
+#container {
+	display:flex;
+	flex-direction: column;
+	align-items: center;
 }

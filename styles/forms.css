@@ -1,3 +1,4 @@
+/* Setup Form */
 .setupForm__teamSelect, .setupForm__buttons {
     display: flex;
     justify-content: space-evenly;
@@ -8,6 +9,7 @@
     border: 1px dotted blue;
 }
 
+/* Team Form */
 .teamForm__team {
     margin: 5px;
     display: flex;
@@ -21,26 +23,12 @@
     padding: 10px;
 }
 
+#teamForm__buttons {
+    display: flex;
+}
+
+#teamForm__cancelButton, 
 #teamForm__submitButton {
-    margin: 0 auto;
-    display: block;
-}
-
-#container {
-    display:flex;
-    flex-direction: column;
-    align-items: center;
-}
-
-.header, 
-.banner, 
-.form, 
-.table {
-    margin: 10px;
-}
-
-table, 
-td {
-    border: 1px black solid;
-    padding: 5px;
+    width: 175px;
+    height: 25px;
 }
