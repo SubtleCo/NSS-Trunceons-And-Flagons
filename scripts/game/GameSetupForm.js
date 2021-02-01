@@ -1,6 +1,10 @@
+import { getScores, useScores } from "../scores/ScoreDataProvider.js"
+import { getTeams, useTeams } from "../teams/TeamDataProvider.js"
+
 const bannerElement = document.querySelector(".banner")
 const formElement = document.querySelector('.form')
 const eventHub = document.querySelector('#container')
+const tableElement = document.querySelector(".table")
 
 const GameSetupForm = () => {
     return `
@@ -41,6 +45,30 @@ const GameSetupForm = () => {
         </div>
         </form>` 
 }
+
+const GameSetupTable = () => {
+    const leaderboard = getTeams()
+        .then(() => {
+            const teamsArr = useTeams()
+
+            let scoreTableData = teamsArr.map(team => {
+                return `
+                <tr><td>${team.teamName}</td></tr>
+                `
+            }).join("")
+        })
+        .then(() => {
+            return `
+                <div class="table table__leaderboard">
+                    <table>
+                        <tr><th>Leaderboards</th></tr>
+                        ${leaderboard}
+                    </table>
+                </div>
+            `
+        })
+}
+
 
 eventHub.addEventListener("click", e => {
     if (e.target.id === "startNewTeam") {
@@ -107,4 +135,5 @@ export const GameSetup = () => {
     document.querySelector("header").innerHTML = "Sup dogs"
     bannerElement.innerHTML = "Select teams for a new game"
     formElement.innerHTML = GameSetupForm()
+    tableElement.innerHTML = GameSetupTable()
 }

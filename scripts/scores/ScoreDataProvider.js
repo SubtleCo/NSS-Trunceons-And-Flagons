@@ -11,6 +11,10 @@ export const getScores = () => {
         })
 }
 
+export const useScores = () => {
+    return scoreCollection.slice()
+}
+
 const saveScore = (score) => {
     fetch("http://localhost:8088/scores", {
         method: "POST",

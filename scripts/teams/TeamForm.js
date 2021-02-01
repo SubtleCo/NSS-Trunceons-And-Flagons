@@ -20,26 +20,24 @@ const TeamForm = () => {
       </div>
     </div>
   `
-  let teamTableData = []
   const teamList = getTeams()
     .then(() => {
       const teamCollection = useTeams()
 
-      teamTableData = teamCollection.map(team => {
+      let teamTableData = teamCollection.map(team => {
         return `
         <tr><td>${team.teamName}</td></tr>
         `
       }).join("")
-    })
-    .then(() => {
+
       tableContent.innerHTML = `
-        <div class="table table__team">
-          <table>
-            <tr><th>All Team Names</th></tr>
-            ${teamTableData}
-          </table>
-        </div>
-      `
+      <div class="table table__team">
+        <table>
+          <tr><th>All Team Names</th></tr>
+          ${teamTableData}
+        </table>
+      </div>
+    `
     })
 }
 

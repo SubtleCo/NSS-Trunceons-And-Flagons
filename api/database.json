@@ -17,5 +17,18 @@
     }
   ],
   "players": [],
-  "scores": []
+  "scores": [
+      {
+          "teamID": 1,
+          "teamScore": 3
+      },
+      {
+          "teamID": 2,
+          "teamScore": 6
+      },
+      {
+          "teamID": 3,
+          "teamScore": 9
+      }
+  ]
 }
