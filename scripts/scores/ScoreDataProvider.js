@@ -24,6 +24,7 @@ const saveScore = (score) => {
 
 eventHub.addEventListener("saveScoresRequested", e => {
     const gameScore = e.detail
+    console.log(gameScore)
     const team1Score = Score(gameScore.team1ID, gameScore.team1Score)
     const team2Score = Score(gameScore.team2ID, gameScore.team2Score)
     const team3Score = Score(gameScore.team3ID, gameScore.team3Score)
