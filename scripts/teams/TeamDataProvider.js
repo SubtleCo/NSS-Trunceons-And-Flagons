@@ -8,7 +8,7 @@ export const useTeams = () => {
   return teamCollection.slice()
 }
 export const useFullTeams = () =>{
-  return fullTeams
+  return fullTeams.slice()
 }
 
 export const getTeams = () => {
