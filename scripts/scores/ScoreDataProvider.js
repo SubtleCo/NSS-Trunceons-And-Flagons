@@ -1,14 +1,18 @@
 import { Score } from './Score.js'
 const eventHub = document.querySelector('#container')
 
-let scoreCollection = [];
+let scoreCollection = []
 
 export const getScores = () => {
-    fetch("http://localhost:8088/scores")
+    return fetch("http://localhost:8088/scores")
         .then(res => res.json())
         .then(parsedScore => {
             scoreCollection = parsedScore
         })
+}
+
+export const useScores = () => {
+    return scoreCollection.slice()
 }
 
 const saveScore = (score) => {

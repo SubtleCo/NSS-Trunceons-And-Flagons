@@ -1,9 +1,11 @@
 import { getTeams, useTeams, getTeamName } from "../teams/TeamDataProvider.js"
 import { getScores, useScores } from "../scores/ScoreDataProvider.js"
 
+
 const bannerElement = document.querySelector(".banner")
 const formElement = document.querySelector('.form')
 const eventHub = document.querySelector('#container')
+const tableElement = document.querySelector(".table")
 
 const GameSetupForm = (fullTeams) => {
     return `
@@ -38,6 +40,48 @@ const GameSetupForm = (fullTeams) => {
         </div>
         </form>` 
 }
+
+const GameSetupTable = () => {
+    getTeams()
+        .then(getScores())
+        .then(() => {
+            let teamsWithScores = []
+            const teamsArr = useTeams()
+            const scoresArr = useScores()
+
+            for (const team of teamsArr) {
+                let teamScore = 0
+                for (const score of scoresArr) {
+                    if (team.id === score.teamID) {
+                        teamScore += score.teamScore
+                    }
+                }
+                const teamWithScore = {
+                    "teamName": team.teamName,
+                    "totalScore": teamScore
+                }
+                teamsWithScores.push(teamWithScore)
+            }
+
+            let leaderboardsTableData = `
+            ${teamsWithScores.map(team => {
+                return `
+                <tr><td>${team.teamName}</td><td>${team.totalScore}</td></tr>
+                `
+            }).join("")}
+            `
+
+            tableElement.innerHTML = `
+            <div class="table__leaderboards">
+                <table>
+                    <tr><th>Leaderboards</th></tr>
+                    ${leaderboardsTableData}
+                </table>
+            </div>
+            `
+        })
+}
+
 
 eventHub.addEventListener("click", e => {
     if (e.target.id === "startNewTeam") {
@@ -114,4 +158,6 @@ export const GameSetup = () => {
             fullTeams = [...allTeams]
             formElement.innerHTML = GameSetupForm(fullTeams)
         })
+    GameSetupTable()
 }
+
