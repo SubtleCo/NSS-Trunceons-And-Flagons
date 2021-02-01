@@ -1,3 +1,5 @@
+import {getPlayersByTeamId} from '../players/PlayersDataProvider.js'
+
 let teamCollection = []
 
 export const useTeams = () => {
@@ -10,6 +12,18 @@ export const getTeams = () => {
     .then(parsedTeams => {
       teamCollection = parsedTeams
     })
+}
+
+export const fullTeams = () =>{
+  getTeams().then(()=>{
+    let fullTeams = []
+    for(const team of teamCollection){
+      if(getPlayersByTeamId(team.id).length === 3){
+          fullTeams.push(team)
+      }
+      return fullTeams
+  }
+})
 }
 
 export const saveTeam = (teamName) => {
