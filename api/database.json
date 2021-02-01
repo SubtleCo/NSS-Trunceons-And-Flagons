@@ -1,42 +1,172 @@
 {
   "teams": [
     {
-      "teamName": "yuh",
-      "timestamp": "2021-02-01T16:04:29.460Z",
+      "teamName": "Ding Dongs",
+      "timestamp": "2021-02-01T19:22:04.423Z",
       "id": 1
     },
     {
-      "teamName": "yeet",
-      "timestamp": "2021-02-01T16:04:34.236Z",
+      "teamName": "Flimpies",
+      "timestamp": "2021-02-01T19:22:16.385Z",
       "id": 2
     },
     {
-      "teamName": "huh",
-      "timestamp": "2021-02-01T16:04:41.113Z",
+      "teamName": "Nose-folks",
+      "timestamp": "2021-02-01T19:22:23.596Z",
       "id": 3
+    },
+    {
+      "teamName": "Jim-jams",
+      "timestamp": "2021-02-01T19:22:32.902Z",
+      "id": 4
+    },
+    {
+      "teamName": "Morphins",
+      "timestamp": "2021-02-01T19:22:46.287Z",
+      "id": 5
+    },
+    {
+      "teamName": "Power Girls",
+      "timestamp": "2021-02-01T19:22:51.676Z",
+      "id": 6
+    },
+    {
+      "teamName": "Elvis Impersonators",
+      "timestamp": "2021-02-01T19:23:03.556Z",
+      "id": 7
+    },
+    {
+      "teamName": "Griblets",
+      "timestamp": "2021-02-01T19:23:08.922Z",
+      "id": 8
     }
   ],
   "players": [
     {
-      "firstName": "phil",
-      "lastName": "phan",
-      "country": "laksdjf",
+      "firstName": "Alex",
+      "lastName": "Martin",
+      "country": "United States",
       "teamId": 1,
       "id": 1
+    },
+    {
+      "firstName": "Jake",
+      "lastName": "Froeb",
+      "country": "USA",
+      "teamId": 1,
+      "id": 2
+    },
+    {
+      "firstName": "Phillip",
+      "lastName": "Phan",
+      "country": "USA",
+      "teamId": 1,
+      "id": 3
+    },
+    {
+      "firstName": "Greta",
+      "lastName": "Gerwig",
+      "country": "Germany",
+      "teamId": 3,
+      "id": 4
+    },
+    {
+      "firstName": "Bill",
+      "lastName": "Murray",
+      "country": "USA",
+      "teamId": 2,
+      "id": 5
+    },
+    {
+      "firstName": "Charlie",
+      "lastName": "Brown",
+      "country": "Croatia",
+      "teamId": 2,
+      "id": 6
+    },
+    {
+      "firstName": "Bill",
+      "lastName": "Evans",
+      "country": "France",
+      "teamId": 2,
+      "id": 7
+    },
+    {
+      "firstName": "Michelin ",
+      "lastName": "Man",
+      "country": "Canada",
+      "teamId": 3,
+      "id": 8
+    },
+    {
+      "firstName": "Nigel",
+      "lastName": "Thornberry",
+      "country": "Nigeria",
+      "teamId": 3,
+      "id": 9
+    },
+    {
+      "firstName": "Bjorn",
+      "lastName": "Bjorgennssssssooon",
+      "country": "Iceland",
+      "teamId": 4,
+      "id": 10
     }
   ],
   "scores": [
     {
       "teamID": 1,
-      "teamScore": 3
+      "teamScore": 7,
+      "date": "2021-02-01T20:14:28.183Z",
+      "id": 1
     },
     {
       "teamID": 2,
-      "teamScore": 6
+      "teamScore": 8,
+      "date": "2021-02-01T20:14:28.183Z",
+      "id": 2
     },
     {
       "teamID": 3,
-      "teamScore": 9
+      "teamScore": 12,
+      "date": "2021-02-01T20:14:28.183Z",
+      "id": 3
+    },
+    {
+      "teamID": 1,
+      "teamScore": 16,
+      "date": "2021-02-01T20:14:48.224Z",
+      "id": 4
+    },
+    {
+      "teamID": 3,
+      "teamScore": 12,
+      "date": "2021-02-01T20:14:48.224Z",
+      "id": 5
+    },
+    {
+      "teamID": 2,
+      "teamScore": 8,
+      "date": "2021-02-01T20:14:48.224Z",
+      "id": 6
+    },
+    {
+      "teamID": 2,
+      "teamScore": 13,
+      "date": "2021-02-01T20:15:09.371Z",
+      "id": 7
+    },
+    {
+      "teamID": 1,
+      "teamScore": 17,
+      "date": "2021-02-01T20:15:09.371Z",
+      "id": 8
+    },
+    {
+      "teamID": 3,
+      "teamScore": 16,
+      "date": "2021-02-01T20:15:09.371Z",
+      "id": 9
     }
   ]
 }

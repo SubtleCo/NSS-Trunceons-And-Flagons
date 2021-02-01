@@ -6,7 +6,7 @@ const formElement = document.querySelector('.form')
 const eventHub = document.querySelector('#container')
 const tableElement = document.querySelector(".table")
 
-const GameSetupForm = () => {
+const GameSetupForm = (fullTeams) => {
     return `
         <form action="" class="setupForm">
         <article class="setupForm__teamSelect">
@@ -14,27 +14,21 @@ const GameSetupForm = () => {
                 <label for="team1Select">Team One:</label>
                 <select name="team1Select" id="team1Select">
                     <option value="0">select a team...</option>
-                    <option value="1">Flimpies</option>
-                    <option value="2">Nose-Folks</option>
-                    <option value="3">Ding Dongs</option>
+                    ${fullTeams.map(team => `<option value="${team.id}">${team.teamName}</option>`).join("")}
                 </select>
             </div>
             <div class="teamSelect__team2">
                 <label for="team2Select">Team Two:</label>
                 <select name="team2Select" id="team2Select">
                     <option value="0">select a team...</option>
-                    <option value="1">Flimpies</option>
-                    <option value="2">Nose-Folks</option>
-                    <option value="3">Ding Dongs</option>
+                    ${fullTeams.map(team => `<option value="${team.id}">${team.teamName}</option>`).join("")}
                 </select>
             </div>
             <div class="teamSelect__team3">
                 <label for="team3Select">Team Three:</label>
                 <select name="team3Select" id="team3Select">
                     <option value="0">select a team...</option>
-                    <option value="1">Flimpies</option>
-                    <option value="2">Nose-Folks</option>
-                    <option value="3">Ding Dongs</option>
+                    ${fullTeams.map(team => `<option value="${team.id}">${team.teamName}</option>`).join("")}
                 </select>
             </div>
         </article>
@@ -47,21 +41,40 @@ const GameSetupForm = () => {
 }
 
 const GameSetupTable = () => {
-    const leaderboard = getTeams()
+    getTeams()
+        .then(getScores())
         .then(() => {
+            let teamsWithScores = []
             const teamsArr = useTeams()
+            const scoresArr = useScores()
 
-            let scoreTableData = teamsArr.map(team => {
+            for (const team of teamsArr) {
+                let teamScore = 0
+                for (const score of scoresArr) {
+                    if (team.id === score.teamID) {
+                        teamScore += score.teamScore
+                    }
+                }
+                const teamWithScore = {
+                    "teamName": team.teamName,
+                    "totalScore": teamScore
+                }
+                teamsWithScores.push(teamWithScore)
+            }
+
+            let leaderboardsTableData = `
+            ${teamsWithScores.map(team => {
                 return `
-                <tr><td>${team.teamName}</td></tr>
+                <tr><td>${team.teamName}</td><td>${team.totalScore}</td></tr>
                 `
-            }).join("")
+            }).join("")}
+            `
 
             tableElement.innerHTML = `
             <div class="table__leaderboards">
                 <table>
                     <tr><th>Leaderboards</th></tr>
-                    ${scoreTableData}
+                    ${leaderboardsTableData}
                 </table>
             </div>
             `
@@ -91,6 +104,7 @@ eventHub.addEventListener("click", e => {
         const team1 = parseInt(document.querySelector("#team1Select").value)
         const team2 = parseInt(document.querySelector("#team2Select").value)
         const team3 = parseInt(document.querySelector("#team3Select").value)
+        console.log(team3)
         if (allTeamsChosen(team1, team2, team3)) {
             if (areUnique(team1, team2, team3)) {
                 const cE = new CustomEvent("startNewGame", {
@@ -131,8 +145,16 @@ eventHub.addEventListener("appStateDefault", e => {
 
 
 export const GameSetup = () => {
-    document.querySelector("header").innerHTML = "Sup dogs"
     bannerElement.innerHTML = "Select teams for a new game"
-    formElement.innerHTML = GameSetupForm()
+
+    let allTeams = []
+    let fullTeams = []
+    getTeams()
+        .then(()=>{
+            allTeams = useTeams()
+            fullTeams = [...allTeams]
+            formElement.innerHTML = GameSetupForm(fullTeams)
+        })
     GameSetupTable()
 }
+
