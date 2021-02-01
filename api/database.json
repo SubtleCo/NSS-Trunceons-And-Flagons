@@ -113,5 +113,60 @@
       "id": 10
     }
   ],
-  "scores": []
+  "scores": [
+    {
+      "teamID": 1,
+      "teamScore": 7,
+      "date": "2021-02-01T20:14:28.183Z",
+      "id": 1
+    },
+    {
+      "teamID": 2,
+      "teamScore": 8,
+      "date": "2021-02-01T20:14:28.183Z",
+      "id": 2
+    },
+    {
+      "teamID": 3,
+      "teamScore": 12,
+      "date": "2021-02-01T20:14:28.183Z",
+      "id": 3
+    },
+    {
+      "teamID": 1,
+      "teamScore": 16,
+      "date": "2021-02-01T20:14:48.224Z",
+      "id": 4
+    },
+    {
+      "teamID": 3,
+      "teamScore": 12,
+      "date": "2021-02-01T20:14:48.224Z",
+      "id": 5
+    },
+    {
+      "teamID": 2,
+      "teamScore": 8,
+      "date": "2021-02-01T20:14:48.224Z",
+      "id": 6
+    },
+    {
+      "teamID": 2,
+      "teamScore": 13,
+      "date": "2021-02-01T20:15:09.371Z",
+      "id": 7
+    },
+    {
+      "teamID": 1,
+      "teamScore": 17,
+      "date": "2021-02-01T20:15:09.371Z",
+      "id": 8
+    },
+    {
+      "teamID": 3,
+      "teamScore": 16,
+      "date": "2021-02-01T20:15:09.371Z",
+      "id": 9
+    }
+  ]
 }

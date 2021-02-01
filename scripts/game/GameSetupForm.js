@@ -12,21 +12,21 @@ const GameSetupForm = (fullTeams) => {
                 <label for="team1Select">Team One:</label>
                 <select name="team1Select" id="team1Select">
                     <option value="0">select a team...</option>
-                    ${fullTeams.map(team => `<option value="${team.teamID}">${team.teamName}</option>`).join("")}
+                    ${fullTeams.map(team => `<option value="${team.id}">${team.teamName}</option>`).join("")}
                 </select>
             </div>
             <div class="teamSelect__team2">
                 <label for="team2Select">Team Two:</label>
                 <select name="team2Select" id="team2Select">
                     <option value="0">select a team...</option>
-                    ${fullTeams.map(team => `<option value="${team.teamID}">${team.teamName}</option>`).join("")}
+                    ${fullTeams.map(team => `<option value="${team.id}">${team.teamName}</option>`).join("")}
                 </select>
             </div>
             <div class="teamSelect__team3">
                 <label for="team3Select">Team Three:</label>
                 <select name="team3Select" id="team3Select">
                     <option value="0">select a team...</option>
-                    ${fullTeams.map(team => `<option value="${team.teamID}">${team.teamName}</option>`).join("")}
+                    ${fullTeams.map(team => `<option value="${team.id}">${team.teamName}</option>`).join("")}
                 </select>
             </div>
         </article>
@@ -60,6 +60,7 @@ eventHub.addEventListener("click", e => {
         const team1 = parseInt(document.querySelector("#team1Select").value)
         const team2 = parseInt(document.querySelector("#team2Select").value)
         const team3 = parseInt(document.querySelector("#team3Select").value)
+        console.log(team3)
         if (allTeamsChosen(team1, team2, team3)) {
             if (areUnique(team1, team2, team3)) {
                 const cE = new CustomEvent("startNewGame", {

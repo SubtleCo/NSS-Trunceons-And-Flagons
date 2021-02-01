@@ -14,6 +14,12 @@ let team1ID = 0;
 let team2ID = 0;
 let team3ID = 0;
 
+const zeroScores = () => {
+    team1Score = 0;
+    team2Score = 0;
+    team3Score = 0;
+}
+
 //HTML for a live game, dynamic with current round number
 
 // We need to dynamically rotate the team roles each round
@@ -77,6 +83,7 @@ eventHub.addEventListener("click", e => {
             calculateScores()
             logScores()
             saveScores()
+            zeroScores()
             goHome()
         }
     }
@@ -124,5 +131,6 @@ eventHub.addEventListener("startNewGame", e => {
     team1ID = e.detail.team1ID
     team2ID = e.detail.team2ID
     team3ID = e.detail.team3ID
+    console.log(team3ID)
     LiveGame()
 })
