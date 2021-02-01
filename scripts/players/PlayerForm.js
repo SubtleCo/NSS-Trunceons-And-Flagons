@@ -1,4 +1,9 @@
-const teamArray = [{
+import { getTeams, useTeams } from "../teams/TeamDataProvider.js"
+import { getPlayersByTeamId, savePlayer } from "./PlayersDataProvider.js"
+
+let teamArray = []
+
+let testTeamArray = [{
     id : 1,
     name : "griffons",
     date : "today"
@@ -9,21 +14,28 @@ const teamArray = [{
     date : "today"
 },
 {
-    id : 1,
+    id : 3,
     name : "toads",
     date : "today"
 },
 {
-    id : 1,
+    id : 4,
     name : "squirrels",
     date : "today"
 },
 ]
 
+
 const contentTarget = document.querySelector(".form")
 const eventHub = document.querySelector("#container")
 
 export const render = (teams) => {
+    let joinableTeams = []
+    for(const team of teams){
+        if(getPlayersByTeamId(team.id).length < 3){
+            joinableTeams.push(team)
+        }
+    }
     contentTarget.innerHTML = `
         <label for="playerFirstName">First Name</label>
         <input type="text" name="playerFirstName" id="playerFirstName">
@@ -33,7 +45,7 @@ export const render = (teams) => {
         <input type="text" name="playerCountry" id="playerCountry">
         <select class="dropdown" id="teamSelect">
             <option value="0">Please select a Team</option>
-            ${teams.map(team => `<option value="${team.id}">${team.name}</option>`)}  
+            ${joinableTeams.map(team => `<option value="${team.id}">${team.name}</option>`)}  
         </select>
         <button id="savePlayer" value="savePlayer">Join Team</button>          
     `
@@ -44,7 +56,7 @@ eventHub.addEventListener("click", clickEvent => {
         const firstName = document.querySelector("#playerFirstName").value
         const lastName = document.querySelector("#playerLastName").value 
         const country = document.querySelector("#playerCountry").value 
-        const teamId = document.querySelector("#teamSelect").value 
+        const teamId = parseInt(document.querySelector("#teamSelect").value)
         if(firstName !== "" && lastName !== "" && country !== "" && teamId !== "0"){
             const player = {
                 firstName : firstName,
@@ -53,11 +65,10 @@ eventHub.addEventListener("click", clickEvent => {
                 teamId : teamId
             }
             alert("saved player")
-            //savePlayer(player)
-            const customEvent = new CustomEvent("appStateDefault", {})
-            //appStateDefault
-            eventHub.dispatchEvent(customEvent);
-            
+            savePlayer(player).then(()=>{
+                const customEvent = new CustomEvent("appStateDefault", {})
+                eventHub.dispatchEvent(customEvent);
+            })   
         }else{
         alert("please fill out forms")
         }
@@ -65,8 +76,10 @@ eventHub.addEventListener("click", clickEvent => {
 })
 
 eventHub.addEventListener("newPlayerRequested", event =>{
-    //get teams
-    //render teams
+    getTeams().then(()=>{
+        teamArray = useTeams()
+    })
+    //using testTeamArray remember to switch back to teamArray for full deployment
     render(teamArray)
 })
 
