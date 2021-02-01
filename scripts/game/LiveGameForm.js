@@ -1,18 +1,25 @@
+import { ScoreTable } from "../scores/ScoreTable.js";
+
 const bannerElement = document.querySelector(".banner")
 const formElement = document.querySelector('.form')
+const tableElement = document.querySelector('.table')
 const eventHub = document.querySelector('#container')
 
 // Keep track of current round and scores
 
 let currentRound = 1;
+
 let team1Score = 0;
 let team2Score = 0;
 let team3Score = 0;
 
-//dummy Data for teamIDs
 let team1ID = 0;
 let team2ID = 0;
 let team3ID = 0;
+
+let team1Name = "";
+let team2Name = "";
+let team3Name = "";
 
 const zeroScores = () => {
     team1Score = 0;
@@ -29,9 +36,9 @@ const LiveGameForm = (round) => {
     <article class='scoreCard'>
         <div class="scoreCard__col teamNames">
             <h3 class="scoreCard__banner--teams">Teams</h3>
-            <p id="scoreCard__team1--name">Jim-Jams</p>
-            <p id="scoreCard__team2--name">Flimpies</p>
-            <p id="scoreCard__team3--name">Charmanders</p>
+            <p id="scoreCard__team1--name">${team1Name}</p>
+            <p id="scoreCard__team2--name">${team2Name}</p>
+            <p id="scoreCard__team3--name">${team3Name}</p>
         </div>
         <div class="scoreCard__col teamRoles">
             <h3 class="scoreCard__banner--roles">Current Role</h3>
@@ -58,6 +65,7 @@ const LiveGame = (round = 1) => {
     bannerElement.innerHTML = `Round ${round}`
     const liveGameForm = LiveGameForm(round)
     render(liveGameForm)
+    displayScores()
 }
 
 const render = (liveGameForm) => {
@@ -73,15 +81,11 @@ eventHub.addEventListener("click", e => {
         e.preventDefault()
         if (currentRound === 1){
             calculateScores()
-            logScores()
             LiveGame(2)
         } else if (currentRound === 2) {
             calculateScores()
-            logScores()
             LiveGame(3)
         } else if (currentRound === 3) {
-            calculateScores()
-            logScores()
             saveScores()
             zeroScores()
             goHome()
@@ -94,14 +98,6 @@ const calculateScores = () => {
     team1Score += parseInt(document.getElementById("team1Score").value)
     team2Score += parseInt(document.getElementById("team2Score").value)
     team3Score += parseInt(document.getElementById("team3Score").value)
-}
-
-// just for testing purposes, delete later
-
-const logScores = () => {
-    console.log("Team 1 score is " + team1Score)
-    console.log("Team 2 score is " + team2Score)
-    console.log("Team 3 score is " + team3Score)
 }
 
 // dispatch "appStateDefault"
@@ -131,6 +127,26 @@ eventHub.addEventListener("startNewGame", e => {
     team1ID = e.detail.team1ID
     team2ID = e.detail.team2ID
     team3ID = e.detail.team3ID
-    console.log(team3ID)
+    team1Name = e.detail.team1Name
+    team2Name = e.detail.team2Name
+    team3Name = e.detail.team3Name
     LiveGame()
 })
+
+const displayScores = () => {
+    const currentScore = {
+        team1: {
+            name: team1Name,
+            score: team1Score
+        },
+        team2: {
+            name: team2Name,
+            score: team2Score
+        },
+        team3: {
+            name: team3Name,
+            score: team3Score
+        }
+    }
+    ScoreTable(currentScore)
+}
