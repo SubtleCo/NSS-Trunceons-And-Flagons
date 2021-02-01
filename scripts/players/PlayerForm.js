@@ -35,7 +35,8 @@ export const render = (teams) => {
             <option value="0">Please select a Team</option>
             ${teams.map(team => `<option value="${team.id}">${team.name}</option>`)}  
         </select>
-        <button id="savePlayer" value="savePlayer">Join Team</button>          
+        <button id="savePlayer" value="savePlayer">Join Team</button>  
+        <button id="playerForm__cancelButton">Cancel</button>        
     `
 }
 
@@ -63,6 +64,13 @@ eventHub.addEventListener("click", clickEvent => {
         }
     }
 })
+
+eventHub.addEventListener("click", e => {
+    if (e.target.id === "playerForm__cancelButton") {
+      const customEvent = new CustomEvent("appStateDefault")
+      eventHub.dispatchEvent(customEvent)
+    }
+  })
 
 eventHub.addEventListener("newPlayerRequested", event =>{
     //get teams
