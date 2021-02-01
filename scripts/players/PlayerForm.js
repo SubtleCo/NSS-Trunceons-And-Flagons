@@ -34,6 +34,7 @@ export const render = (teams) => {
     for(const team of teams){
         if(getPlayersByTeamId(team.id).length < 3){
             joinableTeams.push(team)
+            
         }
     }
     contentTarget.innerHTML = `
@@ -45,11 +46,12 @@ export const render = (teams) => {
         <input type="text" name="playerCountry" id="playerCountry">
         <select class="dropdown" id="teamSelect">
             <option value="0">Please select a Team</option>
-            ${joinableTeams.map(team => `<option value="${team.id}">${team.name}</option>`)}  
+            ${joinableTeams.map(team => `<option value="${team.id}">${team.teamName}</option>`).join("")}  
         </select>
         <button id="savePlayer" value="savePlayer">Join Team</button>  
         <button id="playerForm__cancelButton">Cancel</button>        
     `
+    // console.log(joinableTeams)
 }
 
 eventHub.addEventListener("click", clickEvent => {
@@ -65,7 +67,7 @@ eventHub.addEventListener("click", clickEvent => {
                 country : country,
                 teamId : teamId
             }
-            alert("saved player")
+            // alert("saved player")
             savePlayer(player).then(()=>{
                 const customEvent = new CustomEvent("appStateDefault", {})
                 eventHub.dispatchEvent(customEvent);
@@ -86,9 +88,8 @@ eventHub.addEventListener("click", e => {
 eventHub.addEventListener("newPlayerRequested", event =>{
     getTeams().then(()=>{
         teamArray = useTeams()
+        render(teamArray)
     })
-    //using testTeamArray remember to switch back to teamArray for full deployment
-    render(teamArray)
 })
 
 

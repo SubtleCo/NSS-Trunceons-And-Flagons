@@ -1,21 +1,117 @@
 {
   "teams": [
     {
-      "teamName": "yuh",
-      "timestamp": "2021-02-01T16:04:29.460Z",
+      "teamName": "Ding Dongs",
+      "timestamp": "2021-02-01T19:22:04.423Z",
       "id": 1
     },
     {
-      "teamName": "yeet",
-      "timestamp": "2021-02-01T16:04:34.236Z",
+      "teamName": "Flimpies",
+      "timestamp": "2021-02-01T19:22:16.385Z",
       "id": 2
     },
     {
-      "teamName": "huh",
-      "timestamp": "2021-02-01T16:04:41.113Z",
+      "teamName": "Nose-folks",
+      "timestamp": "2021-02-01T19:22:23.596Z",
       "id": 3
+    },
+    {
+      "teamName": "Jim-jams",
+      "timestamp": "2021-02-01T19:22:32.902Z",
+      "id": 4
+    },
+    {
+      "teamName": "Morphins",
+      "timestamp": "2021-02-01T19:22:46.287Z",
+      "id": 5
+    },
+    {
+      "teamName": "Power Girls",
+      "timestamp": "2021-02-01T19:22:51.676Z",
+      "id": 6
+    },
+    {
+      "teamName": "Elvis Impersonators",
+      "timestamp": "2021-02-01T19:23:03.556Z",
+      "id": 7
+    },
+    {
+      "teamName": "Griblets",
+      "timestamp": "2021-02-01T19:23:08.922Z",
+      "id": 8
     }
   ],
-  "players": [],
+  "players": [
+    {
+      "firstName": "Alex",
+      "lastName": "Martin",
+      "country": "United States",
+      "teamId": 1,
+      "id": 1
+    },
+    {
+      "firstName": "Jake",
+      "lastName": "Froeb",
+      "country": "USA",
+      "teamId": 1,
+      "id": 2
+    },
+    {
+      "firstName": "Phillip",
+      "lastName": "Phan",
+      "country": "USA",
+      "teamId": 1,
+      "id": 3
+    },
+    {
+      "firstName": "Greta",
+      "lastName": "Gerwig",
+      "country": "Germany",
+      "teamId": 3,
+      "id": 4
+    },
+    {
+      "firstName": "Bill",
+      "lastName": "Murray",
+      "country": "USA",
+      "teamId": 2,
+      "id": 5
+    },
+    {
+      "firstName": "Charlie",
+      "lastName": "Brown",
+      "country": "Croatia",
+      "teamId": 2,
+      "id": 6
+    },
+    {
+      "firstName": "Bill",
+      "lastName": "Evans",
+      "country": "France",
+      "teamId": 2,
+      "id": 7
+    },
+    {
+      "firstName": "Michelin ",
+      "lastName": "Man",
+      "country": "Canada",
+      "teamId": 3,
+      "id": 8
+    },
+    {
+      "firstName": "Nigel",
+      "lastName": "Thornberry",
+      "country": "Nigeria",
+      "teamId": 3,
+      "id": 9
+    },
+    {
+      "firstName": "Bjorn",
+      "lastName": "Bjorgennssssssooon",
+      "country": "Iceland",
+      "teamId": 4,
+      "id": 10
+    }
+  ],
   "scores": []
 }
