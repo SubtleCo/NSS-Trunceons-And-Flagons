@@ -24,11 +24,13 @@ const TeamForm = () => {
     .then(() => {
       const teamCollection = useTeams()
 
-      let teamTableData = teamCollection.map(team => {
-        return `
-        <tr><td>${team.teamName}</td></tr>
-        `
-      }).join("")
+      let teamTableData = `
+        ${teamCollection.map(team => {
+          return `
+          <tr><td>${team.teamName}</td></tr>
+          `
+        }).join("")}
+      `
 
       tableContent.innerHTML = `
       <div class="table table__team">

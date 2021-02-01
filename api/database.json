@@ -16,19 +16,27 @@
       "id": 3
     }
   ],
-  "players": [],
+  "players": [
+    {
+      "firstName": "phil",
+      "lastName": "phan",
+      "country": "laksdjf",
+      "teamId": 1,
+      "id": 1
+    }
+  ],
   "scores": [
-      {
-          "teamID": 1,
-          "teamScore": 3
-      },
-      {
-          "teamID": 2,
-          "teamScore": 6
-      },
-      {
-          "teamID": 3,
-          "teamScore": 9
-      }
+    {
+      "teamID": 1,
+      "teamScore": 3
+    },
+    {
+      "teamID": 2,
+      "teamScore": 6
+    },
+    {
+      "teamID": 3,
+      "teamScore": 9
+    }
   ]
 }
