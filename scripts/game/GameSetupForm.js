@@ -1,5 +1,5 @@
 import { getScores, useScores } from "../scores/ScoreDataProvider.js"
-import { getTeams, useTeams } from "../teams/TeamDataProvider.js"
+import { getTeams, useTeams, useFullTeams } from "../teams/TeamDataProvider.js"
 
 const bannerElement = document.querySelector(".banner")
 const formElement = document.querySelector('.form')
@@ -146,13 +146,9 @@ eventHub.addEventListener("appStateDefault", e => {
 
 export const GameSetup = () => {
     bannerElement.innerHTML = "Select teams for a new game"
-
-    let allTeams = []
-    let fullTeams = []
     getTeams()
         .then(()=>{
-            allTeams = useTeams()
-            fullTeams = [...allTeams]
+            const fullTeams = useFullTeams()
             formElement.innerHTML = GameSetupForm(fullTeams)
         })
     GameSetupTable()
