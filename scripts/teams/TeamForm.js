@@ -14,7 +14,8 @@ const TeamForm = () => {
         <label for="teamName">Team Name: </label>
         <input type="text" name="teamName" id="teamForm__teamName" autocomplete="off">
       </div>
-      <div class="teamForm__submit">
+      <div class="teamForm__buttons">
+        <button id="teamForm__cancelButton">Cancel</button>
         <input id="teamForm__submitButton" type="submit" value="Start a New Team">
       </div>
     </div>
@@ -57,6 +58,13 @@ eventHub.addEventListener("click", e => {
     } else {
       alert("Team Name Required")
     }
+  }
+})
+
+eventHub.addEventListener("click", e => {
+  if (e.target.id === "teamForm__cancelButton") {
+    const customEvent = new CustomEvent("appStateDefault")
+    eventHub.dispatchEvent(customEvent)
   }
 })
 
