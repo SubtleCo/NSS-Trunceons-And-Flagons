@@ -1,5 +1,6 @@
 import { getTeams, useTeams } from "../teams/TeamDataProvider.js"
 import { getPlayersByTeamId, savePlayer } from "./PlayersDataProvider.js"
+import {playerList} from "./PlayerList.js"
 
 let teamArray = []
 
@@ -45,12 +46,19 @@ export const render = (teams) => {
         <input type="text" name="playerCountry" id="playerCountry">
         <select class="dropdown" id="teamSelect">
             <option value="0">Please select a Team</option>
-            ${joinableTeams.map(team => `<option value="${team.id}">${team.name}</option>`)}  
+            ${joinableTeams.map(team => `<option value="${team.id}">${team.teamName}</option>`)}  
         </select>
         <button id="savePlayer" value="savePlayer">Join Team</button>  
         <button id="playerForm__cancelButton">Cancel</button>        
     `
 }
+
+eventHub.addEventListener("change", changeEvent => {
+    if (changeEvent.target.id === "teamSelect") {
+        const selectedTeamId = changeEvent.target.value
+        playerList(parseInt(selectedTeamId))
+    }
+})
 
 eventHub.addEventListener("click", clickEvent => {
     if(clickEvent.target.id === "savePlayer"){
@@ -84,11 +92,12 @@ eventHub.addEventListener("click", e => {
   })
 
 eventHub.addEventListener("newPlayerRequested", event =>{
+
     getTeams().then(()=>{
         teamArray = useTeams()
+        render(teamArray)
     })
     //using testTeamArray remember to switch back to teamArray for full deployment
-    render(teamArray)
 })
 
 
