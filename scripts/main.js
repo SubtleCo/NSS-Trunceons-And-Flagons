@@ -5,6 +5,7 @@ import "./players/PlayerForm.js"
 import './teams/TeamForm.js'
 import './scores/ScoreDataProvider.js'
 import {getFullTeams} from './teams/TeamDataProvider.js';
+import { getPlayersByTeamId } from './players/PlayersDataProvider.js';
 
 
 
