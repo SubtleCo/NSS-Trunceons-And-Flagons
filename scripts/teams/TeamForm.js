@@ -53,7 +53,7 @@ eventHub.addEventListener("click", e => {
   
       saveTeam(newTeam)
   
-      const customEvent = new CustomEvent("appStateDefault")
+      const customEvent = new CustomEvent("teamSetupState")
       eventHub.dispatchEvent(customEvent)
     } else {
       alert("Team Name Required")
@@ -63,7 +63,7 @@ eventHub.addEventListener("click", e => {
 
 eventHub.addEventListener("click", e => {
   if (e.target.id === "teamForm__cancelButton") {
-    const customEvent = new CustomEvent("appStateDefault")
+    const customEvent = new CustomEvent("teamSetupState")
     eventHub.dispatchEvent(customEvent)
   }
 })

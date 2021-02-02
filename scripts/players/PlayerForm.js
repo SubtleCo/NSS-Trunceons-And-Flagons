@@ -65,7 +65,7 @@ eventHub.addEventListener("click", clickEvent => {
 
 eventHub.addEventListener("click", e => {
     if (e.target.id === "playerForm__cancelButton") {
-      const customEvent = new CustomEvent("appStateDefault")
+      const customEvent = new CustomEvent("teamSetupState")
       eventHub.dispatchEvent(customEvent)
     }
   })
