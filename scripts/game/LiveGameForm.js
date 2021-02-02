@@ -27,6 +27,14 @@ const zeroScores = () => {
     team3Score = 0;
 }
 
+const roles = [
+    'Knights',
+    'Fairies',
+    'Goblins',
+    'Knights',
+    'Fairies'
+]
+
 //HTML for a live game, dynamic with current round number
 
 // We need to dynamically rotate the team roles each round
@@ -42,9 +50,9 @@ const LiveGameForm = (round) => {
         </div>
         <div class="scoreCard__col teamRoles">
             <h3 class="scoreCard__banner--roles">Current Role</h3>
-            <p id="scoreCard__team1--role">Knights</p>
-            <p id="scoreCard__team2--role">Fairies</p>
-            <p id="scoreCard__team3--role">Goblins</p>
+            <p id="scoreCard__team1--role">${roles[-1 + round]}</p>
+            <p id="scoreCard__team2--role">${roles[0 + round]}</p>
+            <p id="scoreCard__team3--role">${roles[1 + round]}</p>
         </div>
         <div class="scoreCard__col teamScores">
             <h3 class="scoreCard__banner--scores">Enter your round score:</h3>
