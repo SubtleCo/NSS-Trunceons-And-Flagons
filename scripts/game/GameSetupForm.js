@@ -33,12 +33,11 @@ const GameSetupForm = (fullTeams) => {
                     ${fullTeams.map(team => `<option value="${team.id}">${team.teamName}</option>`).join("")}
                 </select>
             </div>
+            <div class="gameSetup__buttons">
+                <button class="button" id="startGame__button">Start A Game</button>
+                <button class="button" id="home__button">Home</button>
+            </div>
         </article>
-        <div class="setupForm__buttons">
-            <button class="setupButton" id="startNewTeam">Start a New Team</button>
-            <button class="setupButton" id="joinTeam">Join a Team</button>
-            <button class="setupButton" id="startGame">Start A Game</button>
-        </div>
         </form>` 
 }
 
@@ -87,25 +86,8 @@ const GameSetupTable = () => {
         })
 }
 
-
 eventHub.addEventListener("click", e => {
-    if (e.target.id === "startNewTeam") {
-        e.preventDefault()
-        // alert("Launch New Team Form")
-        const customEvent = new CustomEvent("newTeamRequested")
-        eventHub.dispatchEvent(customEvent)
-    }
-})
-eventHub.addEventListener("click", e => {
-    if (e.target.id === "joinTeam") {
-        e.preventDefault()
-        // alert("Launch New Player Form")
-        const customEvent = new CustomEvent("newPlayerRequested")
-        eventHub.dispatchEvent(customEvent)
-    }
-})
-eventHub.addEventListener("click", e => {
-    if (e.target.id === "startGame") {
+    if (e.target.id === "startGame__button") {
         e.preventDefault()
         const team1 = parseInt(document.querySelector("#team1Select").value)
         const team2 = parseInt(document.querySelector("#team2Select").value)
@@ -129,6 +111,13 @@ eventHub.addEventListener("click", e => {
         } else {
             alert("Please pick 3 teams. Not 2 or 1 or 0.")
         }
+    }
+})
+
+eventHub.addEventListener("click", e => {
+    if (e.target.id === "home__button") {
+        const customEvent = new CustomEvent("teamSetupState")
+        eventHub.dispatchEvent(customEvent)
     }
 })
 
