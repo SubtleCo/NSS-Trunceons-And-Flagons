@@ -2,8 +2,8 @@ import { ScoreTable } from "../scores/ScoreTable.js";
 
 const bannerElement = document.querySelector(".banner")
 const formElement = document.querySelector('.form')
-const tableElement = document.querySelector('.table')
 const eventHub = document.querySelector('#container')
+const winnerElement = document.querySelector(".winner")
 
 // Keep track of current round and scores
 
@@ -87,6 +87,7 @@ eventHub.addEventListener("click", e => {
             LiveGame(3)
         } else if (currentRound === 3) {
             saveScores()
+            findWinner()
             zeroScores()
             goHome()
         }
@@ -133,8 +134,8 @@ eventHub.addEventListener("startNewGame", e => {
     LiveGame()
 })
 
-const displayScores = () => {
-    const currentScore = {
+const currentScore = () => {
+    return {
         team1: {
             name: team1Name,
             score: team1Score
@@ -148,5 +149,25 @@ const displayScores = () => {
             score: team3Score
         }
     }
-    ScoreTable(currentScore)
+}
+
+const displayScores = () => {
+    const score = currentScore()
+    ScoreTable(score)
+}
+
+const findWinner = () => {
+    const scores = [team1Score, team2Score, team3Score]
+    const sortedScores = scores.sort((a,b) => b-a)
+    if (sortedScores[0] === team1Score) {
+        announceWinner(team1Name)
+    } else if (sortedScores[0] === team2Score) {
+        announceWinner(team2Name)
+    } else if (sortedScores[0] === team3Score) {
+        announceWinner(team3Name)
+    }
+}
+
+const announceWinner = team => {
+    winnerElement.innerHTML = `Congratulations to team ${team}, who probably made the other teams cry. You win!`
 }
