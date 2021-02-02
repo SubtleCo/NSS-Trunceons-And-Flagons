@@ -52,12 +52,11 @@ eventHub.addEventListener("click", clickEvent => {
                 country : country,
                 teamId : teamId
             }
+            const customEvent = new CustomEvent("teamSetupState")
+            eventHub.dispatchEvent(customEvent);
+            
             // alert("saved player")
             savePlayer(player)
-                .then(()=>{
-                    const customEvent = new CustomEvent("appStateDefault", {})
-                    eventHub.dispatchEvent(customEvent);
-                })
         }else{
         alert("please fill out forms")
         }
