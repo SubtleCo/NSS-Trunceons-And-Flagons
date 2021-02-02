@@ -2,8 +2,9 @@ import { ScoreTable } from "../scores/ScoreTable.js";
 
 const bannerElement = document.querySelector(".banner")
 const formElement = document.querySelector('.form')
-const tableElement = document.querySelector('.table')
 const eventHub = document.querySelector('#container')
+const winnerElement = document.querySelector(".winner")
+const tieElement = document.querySelector(".tie")
 
 // Keep track of current round and scores
 
@@ -27,6 +28,14 @@ const zeroScores = () => {
     team3Score = 0;
 }
 
+const roles = [
+    'Knights',
+    'Fairies',
+    'Goblins',
+    'Knights',
+    'Fairies'
+]
+
 //HTML for a live game, dynamic with current round number
 
 // We need to dynamically rotate the team roles each round
@@ -42,9 +51,9 @@ const LiveGameForm = (round) => {
         </div>
         <div class="scoreCard__col teamRoles">
             <h3 class="scoreCard__banner--roles">Current Role</h3>
-            <p id="scoreCard__team1--role">Knights</p>
-            <p id="scoreCard__team2--role">Fairies</p>
-            <p id="scoreCard__team3--role">Goblins</p>
+            <p id="scoreCard__team1--role">${roles[-1 + round]}</p>
+            <p id="scoreCard__team2--role">${roles[0 + round]}</p>
+            <p id="scoreCard__team3--role">${roles[1 + round]}</p>
         </div>
         <div class="scoreCard__col teamScores">
             <h3 class="scoreCard__banner--scores">Enter your round score:</h3>
@@ -87,6 +96,7 @@ eventHub.addEventListener("click", e => {
             LiveGame(3)
         } else if (currentRound === 3) {
             saveScores()
+            findWinner()
             zeroScores()
             goHome()
         }
@@ -133,8 +143,8 @@ eventHub.addEventListener("startNewGame", e => {
     LiveGame()
 })
 
-const displayScores = () => {
-    const currentScore = {
+const currentScore = () => {
+    return {
         team1: {
             name: team1Name,
             score: team1Score
@@ -148,5 +158,38 @@ const displayScores = () => {
             score: team3Score
         }
     }
-    ScoreTable(currentScore)
+}
+
+const displayScores = () => {
+    const score = currentScore()
+    ScoreTable(score)
+}
+
+const findWinner = () => {
+    const scores = [team1Score, team2Score, team3Score]
+    const sortedScores = scores.sort((a,b) => b-a)
+    if (checkForTie(sortedScores)) {
+        announceTie()
+    } else {
+        if (sortedScores[0] === team1Score) {
+            announceWinner(team1Name)
+        } else if (sortedScores[0] === team2Score) {
+            announceWinner(team2Name)
+        } else if (sortedScores[0] === team3Score) {
+            announceWinner(team3Name)
+        }
+    }
+}
+
+const announceWinner = team => {
+    winnerElement.innerHTML = `Congratulations to team ${team}, who probably made the other teams cry. You win!`
+}
+const announceTie = () => {
+    tieElement.innerHTML = `There was a tie. No one won. No one is better than anyone else. All is full of love.`
+}
+
+
+const checkForTie = sortedScores => {
+    if (sortedScores[0] === sortedScores[1]) return true
+    return false
 }

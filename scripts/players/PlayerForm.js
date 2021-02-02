@@ -32,11 +32,6 @@ export const render = (teams) => {
     // console.log(joinableTeams)
 }
 
-const dispatchTeamStateChange = () => {
-    const customEvent = new CustomEvent("teamStateChanged")
-    eventHub.dispatchEvent(customEvent)
-}
-
 eventHub.addEventListener("change", changeEvent => {
     if (changeEvent.target.id === "teamSelect") {
         const selectedTeamId = changeEvent.target.value
@@ -63,7 +58,6 @@ eventHub.addEventListener("click", clickEvent => {
                     const customEvent = new CustomEvent("appStateDefault", {})
                     eventHub.dispatchEvent(customEvent);
                 })
-                .then(dispatchTeamStateChange)
         }else{
         alert("please fill out forms")
         }
