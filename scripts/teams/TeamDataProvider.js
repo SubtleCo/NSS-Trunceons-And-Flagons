@@ -48,5 +48,3 @@ export const getTeamName = (id) => {
   const foundTeam = teamCollection.find(team => team.id === id)
   return foundTeam.teamName
 }
-
-eventHub.addEventListener("teamStateChanged")

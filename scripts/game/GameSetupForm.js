@@ -67,10 +67,9 @@ const GameSetupTable = () => {
 
             let leaderboardsTableData = `
             ${teamsWithScores.map(team => {
+                const prettyPlayers = team.players.map(player => player.firstName).join(", ")
                 return `
-                <tr><td><div class="scoreboard__teamName">${team.teamName}</div> players : ${team.players.map(player =>{
-                    return `${player.firstName}, `
-                }).join("")}</td><td>${team.totalScore}</td></tr>
+                <tr><td><div class="scoreboard__teamName">${team.teamName}</div> players : ${prettyPlayers}</td><td>${team.totalScore}</td></tr>
                 `
             }).join("")}
             `
