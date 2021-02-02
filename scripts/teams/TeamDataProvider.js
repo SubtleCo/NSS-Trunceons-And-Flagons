@@ -1,6 +1,8 @@
 import {getPlayers, getPlayersByTeamId} from '../players/PlayersDataProvider.js'
 import {getScores} from '../scores/ScoreDataProvider.js'
 
+const eventHub = document.querySelector("#container")
+
 let teamCollection = []
 let fullTeams = []
 
@@ -46,3 +48,7 @@ export const getTeamName = (id) => {
   const foundTeam = teamCollection.find(team => team.id === id)
   return foundTeam.teamName
 }
+
+eventHub.addEventListener("teamStateChanged", e => {
+  getFullTeams()
+})
