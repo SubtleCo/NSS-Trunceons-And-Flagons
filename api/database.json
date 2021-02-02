@@ -118,25 +118,18 @@
       "id": 10
     },
     {
-      "firstName": "asdsf",
-      "lastName": "asdf",
-      "country": "asd",
-      "teamId": 9,
-      "id": 11
-    },
-    {
-      "firstName": "asda",
-      "lastName": "adasd",
-      "country": "asda",
-      "teamId": 9,
-      "id": 12
-    },
-    {
       "firstName": "asdf",
       "lastName": "asdf",
       "country": "asdf",
       "teamId": 9,
-      "id": 13
+      "id": 11
+    },
+    {
+      "firstName": "dsf",
+      "lastName": "asdf",
+      "country": "asdf",
+      "teamId": 9,
+      "id": 12
     }
   ],
   "scores": [
@@ -250,24 +243,6 @@
     },
     {
       "teamID": 1,
-      "teamScore": 0,
-      "date": "2021-02-02T15:29:24.584Z",
-      "id": 19
-    },
-    {
-      "teamID": 2,
-      "teamScore": 0,
-      "date": "2021-02-02T15:29:24.584Z",
-      "id": 20
-    },
-    {
-      "teamID": 3,
-      "teamScore": 0,
-      "date": "2021-02-02T15:29:24.584Z",
-      "id": 21
-    },
-    {
-      "teamID": 1,
       "teamScore": 12,
       "date": "2021-02-02T15:34:36.654Z",
       "id": 22
@@ -283,132 +258,6 @@
       "teamScore": 17,
       "date": "2021-02-02T15:34:36.654Z",
       "id": 24
-    },
-    {
-      "teamID": 1,
-      "teamScore": 0,
-      "date": "2021-02-02T15:34:56.735Z",
-      "id": 25
-    },
-    {
-      "teamID": 2,
-      "teamScore": 0,
-      "date": "2021-02-02T15:34:56.735Z",
-      "id": 26
-    },
-    {
-      "teamID": 3,
-      "teamScore": 0,
-      "date": "2021-02-02T15:34:56.735Z",
-      "id": 27
-    },
-    {
-      "teamID": 1,
-      "teamScore": 0,
-      "date": "2021-02-02T15:36:10.817Z",
-      "id": 28
-    },
-    {
-      "teamID": 2,
-      "teamScore": 0,
-      "date": "2021-02-02T15:36:10.817Z",
-      "id": 29
-    },
-    {
-      "teamID": 3,
-      "teamScore": 0,
-      "date": "2021-02-02T15:36:10.817Z",
-      "id": 30
-    },
-    {
-      "teamID": 3,
-      "teamScore": 0,
-      "date": "2021-02-02T16:00:21.276Z",
-      "id": 31
-    },
-    {
-      "teamID": 1,
-      "teamScore": 0,
-      "date": "2021-02-02T16:00:21.276Z",
-      "id": 32
-    },
-    {
-      "teamID": 2,
-      "teamScore": 0,
-      "date": "2021-02-02T16:00:21.276Z",
-      "id": 33
-    },
-    {
-      "teamID": 1,
-      "teamScore": 1,
-      "date": "2021-02-02T16:00:32.953Z",
-      "id": 34
-    },
-    {
-      "teamID": 3,
-      "teamScore": 3,
-      "date": "2021-02-02T16:00:32.953Z",
-      "id": 35
-    },
-    {
-      "teamID": 2,
-      "teamScore": 2,
-      "date": "2021-02-02T16:00:32.953Z",
-      "id": 36
-    },
-    {
-      "teamID": 3,
-      "teamScore": 1,
-      "date": "2021-02-02T16:00:43.564Z",
-      "id": 37
-    },
-    {
-      "teamID": 2,
-      "teamScore": 1,
-      "date": "2021-02-02T16:00:43.564Z",
-      "id": 38
-    },
-    {
-      "teamID": 1,
-      "teamScore": 1,
-      "date": "2021-02-02T16:00:43.564Z",
-      "id": 39
-    },
-    {
-      "teamID": 1,
-      "teamScore": 0,
-      "date": "2021-02-02T16:01:45.978Z",
-      "id": 40
-    },
-    {
-      "teamID": 2,
-      "teamScore": 0,
-      "date": "2021-02-02T16:01:45.978Z",
-      "id": 41
-    },
-    {
-      "teamID": 3,
-      "teamScore": 0,
-      "date": "2021-02-02T16:01:45.978Z",
-      "id": 42
-    },
-    {
-      "teamID": 1,
-      "teamScore": 0,
-      "date": "2021-02-02T16:02:07.679Z",
-      "id": 43
-    },
-    {
-      "teamID": 2,
-      "teamScore": 0,
-      "date": "2021-02-02T16:02:07.679Z",
-      "id": 44
-    },
-    {
-      "teamID": 3,
-      "teamScore": 0,
-      "date": "2021-02-02T16:02:07.679Z",
-      "id": 45
     }
   ]
 }

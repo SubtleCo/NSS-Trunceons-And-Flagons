@@ -54,5 +54,4 @@ export const getTeamName = (id) => {
 
 eventHub.addEventListener("teamStateChanged", e => {
   getFullTeams()
-  .then(GameSetup)
 })
