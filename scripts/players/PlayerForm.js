@@ -53,10 +53,11 @@ eventHub.addEventListener("click", clickEvent => {
                 teamId : teamId
             }
             // alert("saved player")
-            savePlayer(player).then(()=>{
-                const customEvent = new CustomEvent("appStateDefault", {})
-                eventHub.dispatchEvent(customEvent);
-            })   
+            savePlayer(player)
+                .then(()=>{
+                    const customEvent = new CustomEvent("appStateDefault", {})
+                    eventHub.dispatchEvent(customEvent);
+                })
         }else{
         alert("please fill out forms")
         }

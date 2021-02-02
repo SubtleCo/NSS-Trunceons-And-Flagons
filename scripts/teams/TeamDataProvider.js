@@ -1,5 +1,8 @@
 import {getPlayers, getPlayersByTeamId} from '../players/PlayersDataProvider.js'
 import {getScores} from '../scores/ScoreDataProvider.js'
+import { GameSetup } from "../game/GameSetupForm.js"
+
+const eventHub = document.querySelector("#container")
 
 let teamCollection = []
 let fullTeams = []
@@ -21,13 +24,15 @@ export const getTeams = () => {
 
 
 export const getFullTeams = () =>{
+  fullTeams = []
   return getScores().then(getTeams).then(getPlayers).then(()=>{
     for(const team of teamCollection){
       if(getPlayersByTeamId(team.id).length === 3){
+        if (fullTeams.includes(team) === false){
           fullTeams.push(team)
+        }
       }
     }
-    
   })
 }
 
@@ -46,3 +51,8 @@ export const getTeamName = (id) => {
   const foundTeam = teamCollection.find(team => team.id === id)
   return foundTeam.teamName
 }
+
+eventHub.addEventListener("teamStateChanged", e => {
+  getFullTeams()
+  .then(GameSetup)
+})
