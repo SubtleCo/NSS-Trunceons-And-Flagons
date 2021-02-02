@@ -64,9 +64,10 @@ const GameSetupTable = () => {
                 }
                 teamsWithScores.push(teamWithScore)
             }
+            const sortedTeamsByScore = teamsWithScores.sort((a,b) => b.totalScore - a.totalScore)
 
             let leaderboardsTableData = `
-            ${teamsWithScores.map(team => {
+            ${sortedTeamsByScore.map(team => {
                 return `
                 <tr><td><div class="scoreboard__teamName">${team.teamName}</div> players : ${team.players.map(player =>{
                     return `${player.firstName}, `
