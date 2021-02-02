@@ -2,4 +2,7 @@ table,
 td {
     border: 1px black solid;
     padding: 5px;
+};
+.scoreboard__teamName{
+    font-size: large;
 }

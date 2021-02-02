@@ -1,5 +1,6 @@
 import { getTeams, useTeams, useFullTeams, getTeamName } from "../teams/TeamDataProvider.js"
 import { getScores, useScores } from "../scores/ScoreDataProvider.js"
+import { getPlayersByTeamId } from "../players/PlayersDataProvider.js"
 
 
 const bannerElement = document.querySelector(".banner")
@@ -55,9 +56,11 @@ const GameSetupTable = () => {
                         teamScore += score.teamScore
                     }
                 }
+                const teamPlayers = getPlayersByTeamId(team.id)
                 const teamWithScore = {
                     "teamName": team.teamName,
-                    "totalScore": teamScore
+                    "totalScore": teamScore,
+                    "players" : teamPlayers
                 }
                 teamsWithScores.push(teamWithScore)
             }
@@ -65,7 +68,9 @@ const GameSetupTable = () => {
             let leaderboardsTableData = `
             ${teamsWithScores.map(team => {
                 return `
-                <tr><td>${team.teamName}</td><td>${team.totalScore}</td></tr>
+                <tr><td><div class="scoreboard__teamName">${team.teamName}</div> players : ${team.players.map(player =>{
+                    return `${player.firstName}, `
+                }).join("")}</td><td>${team.totalScore}</td></tr>
                 `
             }).join("")}
             `
